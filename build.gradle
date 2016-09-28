@@ -6,6 +6,16 @@ plugins {
 
 buildScan {
     server = 'http://localhost:8280'
+    
+    // Link Build Scan to public GitHub repository
+    link 'GitHub', 'https://github.com/mark-vieira/build-scan-demo'
+    
+    // Tag build as CI or Local build in accordance to build environment
+    tag System.getenv('CI') ? 'CI' : 'Local'
+    
+    // Add any custom data you wish, for example VCS information
+    value 'Git Commit', 'git rev-parse --verify HEAD'.execute().text
+    value 'Git Branch', 'git rev-parse --abbrev-ref HEAD'.execute().text
 }
 
 repositories {
