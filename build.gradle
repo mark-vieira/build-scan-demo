@@ -1,0 +1,21 @@
+plugins {
+    id 'com.gradle.build-scan' version '1.1.1'
+    id 'java'
+    id 'groovy'
+}
+
+buildScan {
+    server = 'http://localhost:8280'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+
+    testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+    testCompile 'junit:junit:4.12'
+}
